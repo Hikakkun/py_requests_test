@@ -1,0 +1,2 @@
+# py_requests_test
+pythonのrequestsライブラリを使ったコードのテスト
