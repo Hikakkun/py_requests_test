@@ -5,9 +5,24 @@ from bs4 import BeautifulSoup
 
 @dataclass
 class UseRequestsClass:
+    """
+    HTTPリクエストを行い、指定されたCSSセレクタに基づいてHTML要素を取得するクラス。
+
+    Attributes:
+        url (str): リクエストを行う対象のURL
+    """
     url : str 
     
     def execute(self, css_selector : str) -> str | None:
+        """
+        指定されたCSSセレクタに基づいてHTML要素を取得します。
+
+        Args:
+            css_selector (str): 取得するHTML要素を指定するCSSセレクタ
+
+        Returns:
+            str | None: 取得したHTML要素のテキスト。エラーが発生した場合はNone。
+        """
         try:
             response = requests.get(self.url)
             response.raise_for_status()
